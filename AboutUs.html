@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brew Bliss Cafe - About Us</title>
+    <link rel="stylesheet" href="style.css">
+  
+    <style>
+      
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="Index.html"> 
+                <img src="Images/Logo.png" alt="Logo" class="navbar-logo">
+            </a>
+            <a href="Index.html">Home</a>
+            <a href="AboutUs.html">About Us</a>
+            <a href="Contact.html">Contact</a>
+            <a href="OurStory.html">Our Story</a>
+            <a href="Menu.html">Menu</a>
+        </nav>
+    </header>
+
+    <section class="AboutPic">
+        <article class="content">
+            <h1 style="font-size:90px; margin-bottom: 20px;">About Us</h1>
+            <p>- Intro Of Our Humble Team -</p>
+        </article>
+    </section>
+
+    <main class="container1">
+        <section class="team">
+            <article class="team-member">
+                <img src="Images/i1.png" alt="Team Member 1">
+                <h3>Jon Doe</h3>
+                <p>CEO & Founder</p>
+            </article>
+            <article class="team-member">
+                <img src="Images/i2.png" alt="Team Member 2">
+                <h3>Jenissa</h3>
+                <p>CTO</p>
+            </article>
+            <article class="team-member">
+                <img src="Images/i3.png" alt="Team Member 3">
+                <h3>Albatross</h3>
+                <p>Marketing Director</p>
+            </article>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <article class="content">
+            <section class="social-icons">
+                <a href="#"><img src="Images/facebook-icon.png" alt="Facebook"></a>
+                <a href="#"><img src="Images/twitter-icon.png" alt="Twitter"></a>
+                <a href="#"><img src="Images/instagram-icon.png" alt="Instagram"></a>
+                <a href="#"><img src="Images/youtube-icon.png" alt="YouTube"></a>
+            </section>
+            <section style="padding-top: 20px;">
+                <a href="#">About</a>
+                <a href="#">News</a>
+                <a href="#">Content Guide</a>
+                <a href="#">Underground Store</a>
+                <a href="#">Privacy</a>
+                <a href="#">Terms of Use</a>
+                <a href="#">Advertising</a>
+                <a href="#">Jobs</a>
+            </section>
+            <p style="padding-top: 20px;">© 2025 Brew Bliss Cafe - Goodbye Cravings -</p>
+        </article>
+    </footer>
+    <script>
+        const toggle = document.querySelector('.menu-toggle');
+        const navbar = document.querySelector('.navbar');
+    
+        toggle.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+    </script>
+    
+</body>
+</html>

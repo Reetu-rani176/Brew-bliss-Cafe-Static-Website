@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Brew Bliss Cafe - Contact Us</title>
+    
+</head>
+<body style="background-color: white;">
+    <header>
+        <nav class="navbar">
+            <a href="Index.html"> 
+                <img src="Images/Logo.png" alt="Logo" class="navbar-logo">
+            </a>
+            <a href="Index.html">Home</a>
+            <a href="AboutUs.html">About Us</a>
+            <a href="Contact.html">Contact</a>
+            <a href="OurStory.html">Our Story</a>
+            <a href="Menu.html">Menu</a>
+        </nav>
+    </header>
+
+    <section class="ContactPic">
+        <article class="content">
+            <h1 style="font-size:90px; margin-bottom: 20px;">Contact Us</h1>
+            <p>- Eagered To Help You -</p>
+        </article>
+    </section>
+
+    <main style="display: flex; justify-content: center; background-color: white;">
+        <figure class="ContectImg">
+        </figure>
+        <form class="form-container" onsubmit="showConfirmation(event)">
+            <fieldset class="form-group">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" placeholder="Your Full Name" required>
+            </fieldset>
+            <fieldset class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" placeholder="Your Email" required>
+            </fieldset>
+            <fieldset class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+            </fieldset>
+            <button type="submit">Contact Us</button>
+        </form>
+    </main>
+
+    <!-- Confirmation Modal -->
+    <section id="confirmationModal" class="modal">
+        <section class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Thank You!</h2>
+            <p>We appreciate your message and will get back to you soon.</p>
+            <button class="btn" onclick="closeModal()">Close</button>
+        </section>
+    </section>
+
+    <footer class="footer">
+        <article class="content">
+            <section class="social-icons">
+                <a href="#"><img src="Images/facebook-icon.png" alt="Facebook"></a>
+                <a href="#"><img src="Images/twitter-icon.png" alt="Twitter"></a>
+                <a href="#"><img src="Images/instagram-icon.png" alt="Instagram"></a>
+                <a href="#"><img src="Images/youtube-icon.png" alt="YouTube"></a>
+            </section>
+            <section style="padding-top: 20px;">
+                <a href="#">About</a>
+                <a href="#">News</a>
+                <a href="#">Content Guide</a>
+                <a href="#">Underground Store</a>
+                <a href="#">Privacy</a>
+                <a href="#">Terms of Use</a>
+                <a href="#">Advertising</a>
+                <a href="#">Jobs</a>
+            </section>
+            <p style="padding-top: 20px;">© 2025 Brew Bliss Cafe - Goodbye Cravings -</p>
+        </article>
+    </footer>
+</body>
+<script>
+    function showConfirmation(event) {
+        event.preventDefault(); // Prevent the default form submission
+        const modal = document.getElementById("confirmationModal");
+        modal.style.display = "block"; // Show the modal
+
+        // Clear the form fields
+        document.getElementById("fullname").value = '';
+        document.getElementById("email").value = '';
+        document.getElementById("message").value = '';
+    }
+
+    function closeModal() {
+        const modal = document.getElementById("confirmationModal");
+        modal.style.display = "none"; // Hide the modal
+    }
+</script>
+</html>
