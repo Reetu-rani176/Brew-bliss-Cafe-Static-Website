@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,28 +10,7 @@
     <title>Brew Bliss Cafe - Home</title>
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <a href="index.html"> 
-                <img src="Images/Logo.png" alt="Logo" class="navbar-logo">
-            </a>
-            <a href="index.html">Home</a>
-            <a href="AboutUs.html">About Us</a>
-            <a href="Contact.html">Contact</a>
-            <a href="OurStory.html">Our Story</a>
-            <a href="Menu.html">Menu</a>
-            <?php
-            session_start();
-            if (isset($_SESSION['user_name'])) {
-                echo '<span class="user-name">Welcome, ' . htmlspecialchars($_SESSION['user_name']) . '</span>';
-                echo '<a href="logout.php">Logout</a>';
-            } else {
-                echo '<a href="signin.html">Sign In</a>';
-                echo '<a href="signup.html">Sign Up</a>';
-            }
-            ?>
-        </nav>
-    </header>
+    <?php include 'navbar.php'; ?>
 
     <section class="HomePic">
         <article class="content">
@@ -36,7 +18,6 @@
             <p>- The Perfect Fix for Your Cravings -</p>
         </article>
     </section>
-
 
     <section class="container">
         <article class="box box1">
@@ -74,7 +55,6 @@
     </section>
     </section>
     
-    
     <footer class="footer">
         <article class="content">
             <section class="social-icons">
@@ -107,21 +87,40 @@
 
     <script>
         var modal = document.getElementById("orderModal");
-
         var buttons = document.querySelectorAll('.order-button');
-
         buttons.forEach(button => {
             button.onclick = function() {
-                modal.style.display = "block";
+                // Get the item name and price from the parent article
+                const article = this.closest('article');
+                const itemName = article.querySelector('h3').textContent;
+                const price = 4.99; // You can adjust this or get it from a data attribute
+
+                // Send to cart
+                fetch('add_to_cart.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `item_name=${encodeURIComponent(itemName)}&price=${price}`
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        modal.style.display = "block";
+                    } else {
+                        alert(data.message || 'Error adding item to cart');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error adding item to cart');
+                });
             }
         });
-
         var span = document.getElementsByClassName("close")[0];
-
         span.onclick = function() {
             modal.style.display = "none";
         }
-
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";
@@ -129,4 +128,4 @@
         }
     </script>
 </body>
-</html>
+</html> 
