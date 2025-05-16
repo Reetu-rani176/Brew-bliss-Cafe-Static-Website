@@ -41,6 +41,14 @@ try {
     <title>Your Cart - Brew Bliss Cafe</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        html, body {
+            height: 100%;
+        }
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
         .cart-container {
             max-width: 700px;
             margin: 2rem auto;
@@ -48,6 +56,7 @@ try {
             background: #faf9f7;
             border-radius: 12px;
             box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+            flex: 1 0 auto;
         }
         .cart-items {
             display: flex;
@@ -137,11 +146,26 @@ try {
             margin-top: 0.7rem;
         }
         .empty-cart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
             text-align: center;
-            padding: 2.5rem 1rem;
+            padding: 3rem 1rem;
             background: #fff;
             border-radius: 10px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin: 3rem 0;
+        }
+        .empty-cart p {
+            font-size: 1.3rem;
+            color: #6e330b;
+            margin-bottom: 1.5rem;
+        }
+        .empty-cart .btn {
+            font-size: 1.1rem;
+            padding: 0.7rem 2rem;
         }
         .error-message {
             color: #dc3545;
@@ -149,6 +173,10 @@ try {
             padding: 0.5rem;
             background: #ffebee;
             border-radius: 4px;
+        }
+        .footer {
+            flex-shrink: 0;
+            margin-top: auto;
         }
     </style>
 </head>
@@ -198,7 +226,9 @@ try {
                         <p>GST (13%): $<?php echo number_format($gst, 2); ?></p>
                         <p class="total">Total: $<?php echo number_format($total, 2); ?></p>
                     </div>
-                    <button class="btn checkout-btn">Proceed to Checkout</button>
+                    <form action="checkout.php" method="post" style="margin-top: 1.5rem;">
+                        <button type="submit" class="btn checkout-btn">Proceed to Checkout</button>
+                    </form>
                 </div>
             </div>
         <?php endif; ?>

@@ -17,8 +17,17 @@ foreach ($menu_items as $item) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Brew Bliss Cafe's extensive menu featuring artisanal coffee, specialty drinks, gourmet pastries, and delicious snacks. Find your perfect coffee companion.">
+    <meta name="keywords" content="Brew Bliss Cafe menu, coffee menu, specialty drinks, gourmet pastries, cafe food, coffee drinks, tea selection, cafe snacks, menu items, coffee prices, cafe menu">
+    <meta name="author" content="Brew Bliss Cafe Team">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Brew Bliss Cafe Menu - Artisanal Coffee & Gourmet Food">
+    <meta property="og:description" content="Discover our carefully crafted menu of artisanal coffee, specialty drinks, and gourmet food at Brew Bliss Cafe.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://brewblisscafe.com/menu">
+    <link rel="canonical" href="https://brewblisscafe.com/menu">
     <link rel="stylesheet" href="style.css">
-    <title>Brew Bliss Cafe - Menu</title>
+    <title>Brew Bliss Cafe Menu - Artisanal Coffee & Gourmet Food | Menu</title>
     <style>
         .menu-container {
             max-width: 1200px;

@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+Allow: /menu.php
+Allow: /about.php
+Allow: /contact.php
+Allow: /news.php
+Allow: /jobs.php
+Allow: /privacy.php
+Allow: /terms.php
+
+Disallow: /admin/
+Disallow: /config.php
+Disallow: /db_connect.php
+Disallow: /setup_admin.php
+Disallow: /verify_admin.php
+
+Sitemap: https://brewblisscafe.com/sitemap.xml 
