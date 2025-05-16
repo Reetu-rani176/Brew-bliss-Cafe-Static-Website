@@ -17,8 +17,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error = "Invalid email format";
     } else {
         try {
-            // Check if user exists
-            $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
+            // Check if user exists and get their role
+            $stmt = $pdo->prepare("SELECT u.*, r.name as role_name FROM users u JOIN roles r ON u.role_id = r.id WHERE u.email = ?");
             $stmt->execute([$email]);
             
             if ($stmt->rowCount() == 1) {
@@ -33,14 +33,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $_SESSION['user_id'] = $user['id'];
                     $_SESSION['user_name'] = $user['name'];
                     $_SESSION['user_email'] = $user['email'];
+                    $_SESSION['user_role'] = $user['role_name'];
                     
-                    // Check if user is an admin
-                    $stmt = $pdo->prepare("SELECT admin_id FROM admins WHERE email = ?");
-                    $stmt->execute([$email]);
-                    $admin = $stmt->fetch();
-                    
-                    if ($admin) {
-                        $_SESSION['admin_id'] = $admin['admin_id'];
+                    // If user is admin, set admin session
+                    if ($user['role_name'] === 'admin') {
+                        $_SESSION['admin_id'] = $user['id'];
                     }
                     
                     // Redirect to home page after 2 seconds

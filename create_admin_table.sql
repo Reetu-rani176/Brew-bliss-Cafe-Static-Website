@@ -1,7 +1,7 @@
--- Drop the existing admins table if it exists
+-- Drop the existing table if it exists
 DROP TABLE IF EXISTS admins;
 
--- Create admin table with correct structure
+-- Create the admins table with the correct structure
 CREATE TABLE admins (
     admin_id INT PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(50) NOT NULL UNIQUE,
@@ -11,13 +11,11 @@ CREATE TABLE admins (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Insert default admin user
--- Username: admin
--- Password: admin123
+-- Insert the admin user
 INSERT INTO admins (username, password, email, full_name) 
 VALUES (
     'admin',
-    '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', -- This is the hashed version of 'admin123'
+    '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
     'admin@brewblisscafe.com',
     'Administrator'
 ); 

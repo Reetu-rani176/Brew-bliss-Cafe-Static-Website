@@ -43,19 +43,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Hash password
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
             
-            // Insert new user
-            $stmt = $pdo->prepare("INSERT INTO users (name, email, password) VALUES (?, ?, ?)");
-            $result = $stmt->execute([$name, $email, $hashed_password]);
+            // Get the default role ID (regular user)
+            $stmt = $pdo->prepare("SELECT id FROM roles WHERE name = 'user'");
+            $stmt->execute();
+            $role = $stmt->fetch();
+            $role_id = $role['id'];
+            
+            // Insert new user with role
+            $stmt = $pdo->prepare("INSERT INTO users (name, email, password, role_id) VALUES (?, ?, ?, ?)");
+            $result = $stmt->execute([$name, $email, $hashed_password, $role_id]);
             
             if ($result) {
-                // Get the new user's ID
+                // Get the new user's ID and role
                 $user_id = $pdo->lastInsertId();
+                $stmt = $pdo->prepare("SELECT r.name as role_name FROM users u JOIN roles r ON u.role_id = r.id WHERE u.id = ?");
+                $stmt->execute([$user_id]);
+                $user_role = $stmt->fetch();
                 
                 // Set session variables
                 $_SESSION['logged_in'] = true;
                 $_SESSION['user_id'] = $user_id;
                 $_SESSION['user_name'] = $name;
                 $_SESSION['user_email'] = $email;
+                $_SESSION['user_role'] = $user_role['role_name'];
                 
                 $success = "Registration successful! Redirecting to home page...";
                 

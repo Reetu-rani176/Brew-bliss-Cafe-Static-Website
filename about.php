@@ -6,8 +6,17 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover the story behind Brew Bliss Cafe - our journey, values, and commitment to serving exceptional coffee and creating memorable experiences for our customers.">
+    <meta name="keywords" content="Brew Bliss Cafe story, cafe history, coffee shop about, cafe team, coffee craftsmanship, cafe values, coffee experience, cafe mission, coffee culture, cafe heritage">
+    <meta name="author" content="Brew Bliss Cafe Team">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="About Brew Bliss Cafe - Our Story & Values">
+    <meta property="og:description" content="Learn about Brew Bliss Cafe's journey, our passionate team, and our commitment to exceptional coffee and customer experience.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://brewblisscafe.com/about">
+    <link rel="canonical" href="https://brewblisscafe.com/about">
     <link rel="stylesheet" href="style.css">
-    <title>Brew Bliss Cafe - About Us</title>
+    <title>About Brew Bliss Cafe - Our Story & Values | About Us</title>
     <style>
         .about-container {
             max-width: 1200px;
@@ -182,22 +191,22 @@ session_start();
             <p>Behind every great cup of coffee is a team of passionate individuals dedicated to creating the perfect experience for our customers. Our team of expert baristas and staff members are not just coffee enthusiasts – they're coffee artists who take pride in their craft.</p>
             <div class="team-grid">
                 <div class="team-member">
-                    <img src="Images/Img1.jpg" alt="Sarah Chen">
+                    <img src="Images/pro-4.jpg" alt="Sarah Chen">
                     <h3>Sarah Chen</h3>
                     <p>Founder & Head Barista</p>
                 </div>
                 <div class="team-member">
-                    <img src="Images/Img2.jpg" alt="Michael Rodriguez">
+                    <img src="Images/pro1.jpg" alt="Michael Rodriguez">
                     <h3>Michael Rodriguez</h3>
                     <p>Coffee Roaster</p>
                 </div>
                 <div class="team-member">
-                    <img src="Images/Img3.jpg" alt="Emma Thompson">
+                    <img src="Images/pro-2.jpg" alt="Emma Thompson">
                     <h3>Emma Thompson</h3>
                     <p>Pastry Chef</p>
                 </div>
                 <div class="team-member">
-                    <img src="Images/Img4.jpeg" alt="David Kim">
+                    <img src="Images/pro-3.jpg" alt="David Kim">
                     <h3>David Kim</h3>
                     <p>Store Manager</p>
                 </div>
